@@ -10,10 +10,12 @@
 MacのTermanalから対象のfolderに移動し、folderをgit管理下にします。ここではまだ github.com は関係ありません。
 
 ```
-$ cd target dir.
+$ cd target_directory
 ```
 
-とはいえ、最初にgitの管理下にすでに入っていないか念のため確認します。
+target_directoryには自分のfileがある実際のdirectoryのことです。
+
+最初にgitの管理下にすでに入っていないか念のため確認します。
 
 ```
 $ ls -a
@@ -21,8 +23,8 @@ $ ls -a
 
 として、
 
-.git のdirecotryなければ大丈夫です。
-もしすでに存在するのであれば、
+.git のdirecotryがなければ大丈夫です。もしすでに存在するのであれば、
+
 ```
 $ rm -rf .git/
 ```
@@ -56,23 +58,23 @@ hint: 	git branch -m <name>
 $ git config --global init.defaultBranch main
 ```
 
-あるいは、後で次のようにします。意味は現在のbranch 名を”main”に変更します。-mとの違いは-Mで強制的に変更します。
+あるいは、後で次のようにします。意味は現在のbranch 名を”main”に変更します。-mとは違い、-Mで強制的に変更します。
 
 ```
 $ git branch -M main
 ```
 
-``` man git-branchより
-       With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If
-       <oldbranch> had a corresponding reflog, it is renamed to match
-       <newbranch>, and a reflog entry is created to remember the branch
-       renaming. If <newbranch> exists, -M must be used to force the rename to
-       happen.
-```
+man git-branchより
+
+    With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If
+    <oldbranch> had a corresponding reflog, it is renamed to match <newbranch>, and a
+    reflog entry is created to remember the branch renaming. If <newbranch> exists,
+    -M must be used to force the rename to happen.
+
 
 ## STEP 2: remote repositoryの設定
 
-次に git管理化にしたい folder に remote reposity を設定し紐付けます。
+次に git管理化にしたい directory に remote reposity を設定し紐付けます。
 
 今度はまずGitHUB.comで作業します。
 適当に名前を入れて新しいreposityを作成します。
@@ -84,10 +86,10 @@ rightmost-removed-4keys_thumb
 ```
 できました。
 
-次に作ったreposityと紐付けます。formatとしては次のようにIDとrepositoryの名前が入ることになります。
+次に作ったreposityと紐付けます。formatとしては次のように ID と repository の名前が入ることになります。
 
 ```
-$ git remote add origin git@github.com:ユーザ名/リポジトリ名.git
+$ git remote add origin git@github.com:UserID/RepositotyName.git
 ```
 
 実際には
@@ -98,7 +100,7 @@ $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 
 ## STEP 3: remote repositoryへの追加
 
-folder内のすべてのfileをgit管理するために git add で file や directoryを追加します。これをstagingするといいます。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したいfileやdirectoryを記載しておきます。
+directory内のすべてのfileをgit管理するために git add で file や directoryを追加します。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したいfileやdirectoryを記載しておきます。
 
 ```
 $ git add *
@@ -116,7 +118,7 @@ $ git commit -m 'first commit.'
 $ git push -u origin main
 ```
 
-このようにlocalのfolderをGitHUB管理下において、remote repository へ file を push できます。
+このようにlocalのfolderをGitHUB管理下において、remote repository へ file を登録できます。
 
 
 ## others
@@ -128,7 +130,8 @@ $ git push -u origin main
 
 ```
 
-### グローバル設定-
+### グローバル設定
+
 全体の設定をしたいときは、
 
 ```
@@ -137,6 +140,7 @@ $ git config --global user.email "yamada@example.com"
 ```
 
 ### リポジトリ毎の設定
+
 repository(directory)ごとにauthorを登録したいときは
 
 ```
