@@ -49,6 +49,7 @@ hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint: 	git branch -m <name>
 ```
+
 これをやっておくとこのwarningは表示されなくなります。
 
 ```
@@ -61,15 +62,15 @@ $ git config --global init.defaultBranch main
 $ git branch -M main
 ```
 
-
-## STEP 2: リモートリポジトリの設定
+## STEP 2: remote repositoryの設定
 
 次に git管理化にしたい folder に remote reposity を設定し紐付けます。
 
 今度はまずGitHUB.comで作業します。
 適当に名前を入れて新しいreposityを作成します。
 
-今回は名前を次の用紙ます。
+今回は名前を次のようにします。
+
 ```
 rightmost-removed-4keys_thumb
 ```
@@ -85,8 +86,7 @@ $ git remote add origin git@github.com:ユーザ名/リポジトリ名.git
 ```
 $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 ```
-とします。
-repository 名の後ろに.gitが必要です。
+とします。repository 名の後ろに.gitが必要です。
 
 ## STEP 3: remote repositoryへの追加
 
@@ -115,7 +115,6 @@ $ git push -u origin main
 
 ### 設定された値の確認
 
-
 ```
 % git config -l
 
@@ -123,6 +122,7 @@ $ git push -u origin main
 
 ### グローバル設定-
 全体の設定をしたいときは、
+
 ```
 $ git config --global user.name "Yamada Tarou"
 $ git config --global user.email "yamada@example.com"
@@ -130,6 +130,7 @@ $ git config --global user.email "yamada@example.com"
 
 ### リポジトリ毎の設定
 repository(directory)ごとにauthorを登録したいときは
+
 ```
 $ git config user.name "Yamada Tarou"
 $ git config user.email "yamada@example.com"
