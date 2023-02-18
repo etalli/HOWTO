@@ -56,10 +56,18 @@ hint: 	git branch -m <name>
 $ git config --global init.defaultBranch main
 ```
 
-あるいは、後で次のようにします。
+あるいは、後で次のようにします。意味は現在のbranch 名を”main”に変更します。-mとの違いは-Mで強制的に変更します。
 
 ```
 $ git branch -M main
+```
+
+``` man git-branchより
+       With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If
+       <oldbranch> had a corresponding reflog, it is renamed to match
+       <newbranch>, and a reflog entry is created to remember the branch
+       renaming. If <newbranch> exists, -M must be used to force the rename to
+       happen.
 ```
 
 ## STEP 2: remote repositoryの設定
