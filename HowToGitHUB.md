@@ -149,3 +149,4 @@ $ git config user.email "yamada@example.com"
 ```
 
 以上、local のfile, directory を GitHUBの管理下に置く方法でした。
+
