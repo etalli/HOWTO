@@ -1,9 +1,9 @@
 # git on GitHUB.com HOWTO
 
-既存のMacのlocalのfolderの内容をgit管理下にして remote repositoryと紐づけする方法です。
-つまり、source code や文章を先に作成し、その後、GitHUBの管理下におきたいときに使う方法です。
+Macのlocalのfolderの内容をgitの管理下にして GitHUB の remote repository と紐づけする方法です。
+つまり、source code や文章を先に作成し、その後、GitHUB の管理下におきたいときに使う方法です。
 
-考え方としては二段階で、まずlocalのfolderをgitの管理下において、その上でremote のreposityを指定し、そこに登録するという流れになります。
+考え方としては二段階で、まず local の folder を git の管理下におきます。次に remote reposity を指定し、そこに登録するという流れです。
 
 ## STEP 1: git管理下の設定
 
@@ -13,7 +13,7 @@ MacのTermanalから対象のfolderに移動し、folderをgit管理下にしま
 $ cd target_directory
 ```
 
-target_directoryには自分のfileがある実際のdirectoryのことです。
+target_directoryには登録したいfileがあるdirectoryのことです。
 
 最初にgitの管理下にすでに入っていないか念のため確認します。
 
@@ -21,7 +21,7 @@ target_directoryには自分のfileがある実際のdirectoryのことです。
 $ ls -a
 ```
 
-として、
+として、あるいは、$ git status で確認します。
 
 .git のdirecotryがなければ大丈夫です。もしすでに存在するのであれば、
 
@@ -58,7 +58,7 @@ hint: 	git branch -m <name>
 $ git config --global init.defaultBranch main
 ```
 
-あるいは、後で次のようにします。意味は現在のbranch 名を”main”に変更します。-mとは違い、-Mで強制的に変更します。
+あるいは、後で次のようにします。コマンドの意味は現在のbranch 名を”main”に変更するというものです。-mとは違い、-Mで強制的に変更します。
 
 ```
 $ git branch -M main
@@ -76,24 +76,22 @@ man git-branchより
 
 次に git管理化にしたい directory に remote reposity を設定し紐付けます。
 
-今度はまずGitHUB.comで作業します。
-適当に名前を入れて新しいreposityを作成します。
-
+今度はまず gitHUB.com で作業します。適当に名前を入れて新しいreposityを作成します。
 今回は名前を次のようにします。
 
 ```
 rightmost-removed-4keys_thumb
 ```
-できました。
 
+Web siteでの詳細は略します。上記のようにできたとします。
 次に作ったreposityと紐付けます。formatとしては次のように ID と repository の名前が入ることになります。
 
-```
+```Mac
 $ git remote add origin git@github.com:UserID/RepositotyName.git
 ```
 
 実際には
-```
+```Mac:Terminal
 $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 ```
 とします。repository 名の後ろに.gitが必要です。
