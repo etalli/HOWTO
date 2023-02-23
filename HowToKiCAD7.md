@@ -31,9 +31,6 @@ Reaadmeに書いてある通り、downloadしたpacakgeをdouble clickして起�
 
 # 全体像
 
-PNG
-![](images/2023-02-23_21_43_10.png)
-
 SVG
 ![](images/KiCAD7.drawio.svg)
 
