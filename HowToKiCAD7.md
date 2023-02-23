@@ -29,5 +29,12 @@ https://www.kicad.org/download/macos/
 
 Reaadmeに書いてある通り、downloadしたpacakgeをdouble clickして起動する。そして、Application folderにcopyする。
 
-##続く
+# 全体像
+
+KiCAD7.drawio.svg
+
+![](images/2023-02-23_21_43_10.png)
+
+
+![](images/KiCAD7.drawio.svg)
 
