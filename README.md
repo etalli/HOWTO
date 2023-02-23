@@ -1,2 +1,6 @@
 # HOWTO
 
+* GitHUB
+* KiCAD7
+
+
