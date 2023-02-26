@@ -14,23 +14,55 @@ KiCAD7 Tutorial
 
 ## 費用
 
-例えば、2023年2月時点でJLCPCBの場合、5枚で10cmx10cm以内のPCBなら$2のdiscountとなっている。
-送料については発送方法はFedexなど選択できるが、一番安いものならPCB作成+shipping費用で合計 $3.06 である。
-1ドル135円で計算すると、413円である。この価格なら一枚しか作らない基板でもKiCADで作って発注してみようかという気になる。
+例えば、2023年2月時点でJLCPCBの場合、5枚で10cmx10cm以内のPCBなら$4から$2へのdiscountとなっている。
+送料は発送方法はFedexなど選択できるが、一番安いOCSならPCB作成+shipping費用で合計 $3.06 である。
+1ドル135円で計算すると送料込みで413円である。この価格なら一枚しか作らない基板でも KiCAD で作って発注してみようかという気になる
 
 ## 対象
 
-ここでの KiCAD の Version は 7.00 とする。20023年2月現在、Mac OS の最新版は Ventrura 13.1 である。
+ここでの KiCAD の Version は 7.00 とする。利用するMac OS Ventrura 13.1 とする。
 
 ## install
 
 まずはこちらのページを開き、install する。
 https://www.kicad.org/download/macos/
 
-Reaadmeに書いてある通り、downloadしたpacakgeをdouble clickして起動する。そして、Application folderにcopyする。
+Reaadmeに書いてある通り、download した pacakge を double click して起動する。そして、Application folder に copyする。example folderはinstallしなくてもよいだろう。
 
 # 全体像
 
 SVG
 ![](images/KiCAD7.drawio.svg)
+
+## Schematic Editor
+いわゆる階層を使うと複数の回路図でごちゃごちゃせず見通しがよくなる。
+
+## Symbol Editor
+
+## PCB Editor
+Freeroutingのinstallと配線の太さの設定をしておくとよい。
+
+
+## Footprint Editor
+skip.
+
+## Gerver Viewer
+skip.
+
+## Image Converter
+skip.
+
+## Calculator Tools
+skip.
+
+## Drawing Sheet Editor
+skip.
+
+## Plugin and Cotent Manager
+
+Freeroutingのinstallは必須
+
+
+# Terms 用語
+NPTH, Non-Plated Through Holesの略. 穴に銅箔なしでネジ穴に利用される。
 
