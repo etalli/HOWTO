@@ -22,7 +22,7 @@ KiCAD7 Tutorial
 
 ## 対象
 
-ここでの KiCAD の Version は 7.00 とする。利用するMac OS Ventrura 13.1 とする。
+ここでの KiCAD は Version 7.00 で、利用する Mac OS はVentrura 13.1 とする。
 
 ## install
 
