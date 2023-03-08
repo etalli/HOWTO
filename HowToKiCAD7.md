@@ -110,3 +110,4 @@ Freeroutingのinstallは必須
 # Terms 用語
 NPTH, Non-Plated Through Holesの略. 穴に銅箔なしでネジ穴に利用される。
 
+## 逆引きd
