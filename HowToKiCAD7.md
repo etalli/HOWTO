@@ -94,7 +94,11 @@ skip.
 skip.
 
 ## Image Converter
-skip.
+
+PNGなどのファイルをloadして、exportするだけ。出力時にサイズを指定できるので簡単。
+複数を hogehoge.prettyのdirecotryに保存するようにすると、すぐに候補に出てくるのでオススメである。
+独自directoryだと自分で追加登録しないといけない。
+![](images/2023-03-09_19_57_18.png)
 
 ## Calculator Tools
 skip.
