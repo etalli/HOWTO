@@ -116,7 +116,7 @@ NPTH, Non-Plated Through Holesの略. 穴に銅箔なしでネジ穴に利用さ
 
 ## 逆引き
 
-次のエラーが出たときの対処方法
+### 次のエラーが出たときの対処方法
 ![](images/2023-03-08_21_45_31.png)
 
 Auto routingをしようとして、このエラーが出たときは、footprintで回路図と結びついていないものがあることを意味している。
@@ -126,4 +126,10 @@ Auto routingをしようとして、このエラーが出たときは、footprin
 このエラーが意味するのは、reference IDがないというもので、designatorとよばれるが、その値がない状態であることを意味する。からはよいが参照なしはDSN Export toolには適さない。
 
 具体的な見つけ方としては、すべてをグループにして、そのpropertyを見るとsymbolと結びついていないものが見つかるのでそれをすべて削除する。一つでも残っていると自動配線の機能が使えない。
+
+### top directory に生成されるファイル群
+fp-info-cache
+fp-lib-table
+library.kicad_sym
+sym-lib-table
 
