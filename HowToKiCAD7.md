@@ -128,8 +128,13 @@ Auto routingをしようとして、このエラーが出たときは、footprin
 具体的な見つけ方としては、すべてをグループにして、そのpropertyを見るとsymbolと結びついていないものが見つかるのでそれをすべて削除する。一つでも残っていると自動配線の機能が使えない。
 
 ### top directory に生成されるファイル群
-fp-info-cache
-fp-lib-table
-library.kicad_sym
-sym-lib-table
+* fp-info-cache
+  Reference Manual に記載されているが、localの一時的なファイルで他の人と共有するためには不要のもの。よって、GitHUBなどへの登録は不要で.gitignoreに追加しておけばよい。
+   https://docs.kicad.org/7.0/en/kicad/kicad.html#storing_and_sending_kicad_files
+
+"Cache to speed up loading of footprint libraries. Does not need to be distributed with the project or put under version control."
+
+* fp-lib-table
+
+* sym-lib-table
 
