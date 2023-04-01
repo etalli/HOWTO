@@ -1,21 +1,20 @@
 # git on GitHUB.com HOWTO
 
-Macのlocalのfolderの内容をgitの管理下にして GitHUB の remote repository と紐づけする方法です。
-つまり、source code や文章を先に作成し、その後、GitHUB の管理下におきたいときに使う方法です。
+Mac の local の folder の内容を git の管理下にして GitHUB の remote repository と紐づけする方法です。つまり、source code や文章を先に作成し、その後、GitHUB の管理下におきたいときに使う方法です。
 
-考え方としては二段階で、まず local の folder を git の管理下におきます。次に remote reposity を指定し、そこに登録するという流れです。
+考え方としては二段階で、まず local の folder を git の管理下におきます。次に remote reposity を指定し、そこに登録するという流れです。イメージとしては、初期化して、管理下に加えて、リモートサイトを登録し、リモートサイトに送る、という流れになります。
 
 ## STEP 1: git管理下の設定
 
-MacのTermanalから対象のfolderに移動し、folderをgit管理下にします。ここではまだ github.com は関係ありません。
+Mac の Termanal から対象の folder に移動し、folder をgit管理下にします。ここではまだ github.com は関係ありません。
 
 ```
 $ cd target_directory
 ```
 
-target_directoryには登録したいfileがあるdirectoryのことです。
+target_directory とは、登録したい file があるdirectory, folder のことです。
 
-最初にgitの管理下にすでに入っていないか念のため確認します。
+最初に git の管理下にすでに入っていないか念のため確認します。
 
 ```
 $ ls -a
@@ -23,14 +22,14 @@ $ ls -a
 
 として、あるいは、$ git status で確認します。
 
-.git のdirecotryがなければ大丈夫です。もしすでに存在するのであれば、
+.git の direcotry がなければ大丈夫です。もしすでに存在するのであれば、
 
 ```
 $ rm -rf .git/
 ```
 で削除します。
 
-そして、
+そして、初期化します。
 
 ```
 $ git init
@@ -52,7 +51,7 @@ hint:
 hint: 	git branch -m <name>
 ```
 
-これをやっておくとこのwarningは表示されなくなります。
+これをやっておくとこの warning は表示されなくなります。
 
 ```
 $ git config --global init.defaultBranch main
@@ -72,25 +71,24 @@ man git-branchより
     -M must be used to force the rename to happen.
 
 
-## STEP 2: remote repositoryの設定
+## STEP 2: remote repository の設定
 
 次に git管理化にしたい directory に remote reposity を設定し紐付けます。
 
-今度はまず gitHUB.com で作業します。適当に名前を入れて新しいreposityを作成します。
-今回は名前を次のようにします。
+今度はまず gitHUB.com で作業します。適当に名前を入れて新しい reposity を作成します。今回は名前を次のようにします。
 
 ```
 rightmost-removed-4keys_thumb
 ```
 
 Web siteでの詳細は略します。上記のようにできたとします。
-次に作ったreposityと紐付けます。formatとしては次のように ID と repository の名前が入ることになります。
+次に作った reposity と local のfileを紐付けます。formatとしては次のように ID と repository の名前が入ることになります。
 
 ```Mac
 $ git remote add origin git@github.com:UserID/RepositotyName.git
 ```
 
-実際には
+実際には、私のIDの例なら
 ```Mac:Terminal
 $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 ```
@@ -98,13 +96,13 @@ $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 
 ## STEP 3: remote repositoryへの追加
 
-directory内のすべてのfileをgit管理するために git add で file や directoryを追加します。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したいfileやdirectoryを記載しておきます。
+directory内のすべてのfileをgit管理するために git add で file や directory を追加します。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したい file や directory を記載しておきます。
 
 ```
 $ git add *
 ```
 
-次に、git commit で local のgit repositoryを commit します。
+次に、git commit で local の git repository を commit します。
 
 ```
 $ git commit -m 'first commit.'
