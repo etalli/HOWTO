@@ -116,6 +116,12 @@ NPTH, Non-Plated Through Holesの略. 穴に銅箔なしでネジ穴に利用さ
 
 ## 逆引き
 
+## GroupingしたObjectの回転方法
+
+グループした後は右クリック＞Propertyでは回転できない。
+Position Tools > Move Exactly (shift-M)を使う。
+
+
 ### 次のエラーが出たときの対処方法
 ![](images/2023-03-08_21_45_31.png)
 
