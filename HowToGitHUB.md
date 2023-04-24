@@ -102,6 +102,7 @@ directory内のすべてのfileをgit管理するために git add で file や 
 $ git add *
 ```
 
+これは少々時間がかかるこt路があｒ
 次に、git commit で local の git repository を commit します。
 
 ```
