@@ -94,6 +94,43 @@ $ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
 ```
 とします。repository 名の後ろに.gitが必要です。
 
+このときに
+```
+$ git remote add origin git@github.com:etalli/168_LMT.git
+error: remote origin already exists.
+```
+となることがあります。
+対処法としては次のように削除します。
+```
+$ git remote rm origin
+```
+
+このエラーメッセージが示しているのは、すでに同じ名前で設定されていますよ、という意味です。
+なので、対処法としては、別の名前にして新規に足すか、更新するしかありません。
+
+まずは状況を確認します。
+```
+$ git remote -v.
+```
+確認すると、
+```
+❯ git remote -v
+origin	git@github.com:etalli/168_LMT.git (fetch)
+origin	git@github.com:etalli/168_LMT.git (push)
+```
+となりました。登録済みです。
+
+新しいリモートを足すには、
+```
+$ git remote add github git@github.com:ppreyer/first_app.git
+```
+
+更新するには
+```
+$ git remote set-url origin git@github.com:ppreyer/first_app.git
+```
+となります。
+
 ## STEP 3: remote repositoryへの追加
 
 directory内のすべてのfileをgit管理するために git add で file や directory を追加します。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したい file や directory を記載しておきます。
@@ -102,7 +139,7 @@ directory内のすべてのfileをgit管理するために git add で file や 
 $ git add *
 ```
 
-これは少々時間がかかるこt路があｒ
+これは少々時間がかかることがあります。
 次に、git commit で local の git repository を commit します。
 
 ```
