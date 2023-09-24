@@ -22,7 +22,7 @@ $ ls -a
 
 として、あるいは、$ git status で確認します。
 
-.git の direcotry がなければ大丈夫です。もしすでに存在するのであれば、
+.git の direcotry がなければ大丈夫です。もしすでに .git が存在するのであれば、
 
 ```
 $ rm -rf .git/
@@ -38,7 +38,14 @@ $ git init
 
 これで .git という directory が作成されます。
 
-こんな waring も表示されたかもしれません。
+正常に実行さると、例えば下記のように表示されます。
+```
+$ git init
+Initialized empty Git repository in /Users/k/Library/CloudStorage/Dropbox/MyProjects/180_BluetoothKeyboard/.git/
+```
+
+場合によっては、こんな waring も表示されたかもしれません。
+
 ```
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -52,19 +59,19 @@ hint:
 hint: 	git branch -m <name>
 ```
 
-これをやっておくとこの warning は表示されなくなります。
+この場合には、次のコマンドを実行しておくと、この warning は表示されなくなります。
 
 ```
 $ git config --global init.defaultBranch main
 ```
 
-あるいは、後で次のようにします。コマンドの意味は現在のbranch 名を”main”に変更するというものです。-mとは違い、-Mで強制的に変更します。
+あるいは、後で次のようにします。コマンドの意味は現在の branch 名を ”main” に変更するというものです。-m とは違い、大文字の -M で強制的に変更します。
 
 ```
 $ git branch -M main
 ```
 
-man git-branchより
+参考までに -m と -Mの違いは、man git-branchより
 
     With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If
     <oldbranch> had a corresponding reflog, it is renamed to match <newbranch>, and a
@@ -74,34 +81,41 @@ man git-branchより
 
 ## STEP 2: remote repository の設定
 
-次に git管理化にしたい directory に remote reposity を設定し紐付けます。
+STEP 1で gitの初期化ができたら、次に gitの管理化にしたい directory に remote reposity を設定し紐付けます。
 
-今度はまず gitHUB.com で作業します。適当に名前を入れて新しい reposity を作成します。今回は名前を次のようにします。
+今度は gitHUB.com で作業します。適当に名前を入れて新しい reposity を作成します。今回は名前を次のようにします。
+Web site での詳細は略しますが、流れとして、github top / Repogitries / New / として、repository name, Licenseの指定、READMEの追加の有無などを入力して作ります。
 
 ```
-rightmost-removed-4keys_thumb
+180_bluetooth_keyboard
 ```
 
-Web siteでの詳細は略します。上記のようにできたとします。
-次に作った reposity と local のfileを紐付けます。formatとしては次のように ID と repository の名前が入ることになります。
+上記のようにできたとします。
+
+次に作った reposity と local repository を紐付けます。format としては次のように ID と repository の名前が入ることになります。
 
 ```Mac
 $ git remote add origin git@github.com:UserID/RepositotyName.git
 ```
 
 実際には、私のIDの例なら
+
 ```Mac:Terminal
-$ git remote add origin git@github.com:etalli/rightmost-removed-4keys_thumb.git
+$ git remote add origin git@github.com:etalli/180_bluetooth_keyboard.git
 ```
 とします。repository 名の後ろに.gitが必要です。
+これは成功しても何も表示されません。
 
 このときに
+
 ```
 $ git remote add origin git@github.com:etalli/168_LMT.git
 error: remote origin already exists.
 ```
+
 となることがあります。
-対処法としては次のように削除します。
+この対処法としては次のように削除します。
+
 ```
 $ git remote rm origin
 ```
@@ -110,15 +124,19 @@ $ git remote rm origin
 なので、対処法としては、別の名前にして新規に足すか、更新するしかありません。
 
 まずは状況を確認します。
+
 ```
 $ git remote -v.
 ```
+
 確認すると、
+
 ```
 ❯ git remote -v
 origin	git@github.com:etalli/168_LMT.git (fetch)
 origin	git@github.com:etalli/168_LMT.git (push)
-```nn
+```
+
 となりました。登録済みです。
 
 新しいリモートを足すには、
@@ -132,29 +150,67 @@ $ git remote set-url origin git@github.com:ppreyer/first_app.git
 ```
 となります。
 
+
 ## STEP 3: remote repositoryへの追加
 
-directory内のすべてのfileをgit管理するために git add で file や directory を追加します。git管理の外にしたいfileやdirectoryがある場合は、個別に git add するか、.gitignore file で除隊したい file や directory を記載しておきます。
+STEP1 で local repository の初期化、STEP2 で remote site を作り、local と remote の紐づけができたので、
+次に local directory の file を git管理するために git add で file や directory を追加します。
+git の管理外にしたい file や directory がある場合は、個別に管理したいものを git add するか、逆に .gitignore file で除外したい file や directory を記載する方法があります。
+
+まず加えたいものを足す方法です。
 
 ```
 $ git add *
 ```
 
-これは少々時間がかかることがあります。
+これはlocal のfileが多い場合には少々時間がかかることがあります。ただ、これだと全部登録されてしまいますので、backup などが不要なら .gitignore を用いて、除外したいfile, directory の指定をするとよいかと思います。
+
 次に、git commit で local の git repository を commit します。
 
 ```
 $ git commit -m 'first commit.'
 ```
 
+すとる次のようになります。
+```
+❯ git commit -m "first commit"                                             [09/24/23 /Users/k/Dropbox/MyProjects/[main (root-commit) e12faf2] first commit
+ 3 files changed, 52 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100755 RPI_pico_W_keyboard/RPI_pico_W_password.ino
+ create mode 100644 RPI_pico_W_keyboard/readme.md
+```
+
+この段階ではまだgithub.comには登録されていません。あくまで管理下においたという処理までです。
+
+ここではreferences以下はあくまで参考で管理下に置きたくないので、.gitignorに登録して削除しています。
+
+```
+❯ git add .gitignore
+```
+.gitignore file自体も忘れずに登録します。
+
+
 ## STEP 4: remote repositoryへのpush
 
 ```
-$ git push -u origin main
+$ git push -u origin mainkk
+Enter passphrase for key '/Users/k/.ssh/id_rsa':
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 1.00 KiB | 1.00 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:etalli/180_bluetooth_keyboard.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
 ```
 
-このようにlocalのfolderをGitHUB管理下において、remote repository へ file を登録できます。
-
+このように local の folder を GitHUB 管理下において、remote repository へ file を登録できます。
+本当に登録されたかgithub.comをweb browserで確認します。
+```
+https://github.com/etalli/180_bluetooth_keyboard
+```
 
 ## others
 
