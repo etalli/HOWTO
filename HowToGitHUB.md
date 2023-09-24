@@ -2,19 +2,19 @@
 
 Mac の local の folder の内容を git の管理下にして GitHUB の remote repository と紐づけする方法です。つまり、source code や文章を先に作成し、その後、GitHUB の管理下におきたいときに使う方法です。
 
-考え方としては二段階で、まず local の folder を git の管理下におきます。次に remote reposity を指定し、そこに登録するという流れです。イメージとしては、初期化して、管理下に加えて、リモートサイトを登録し、リモートサイトに送る、という流れになります。
+考え方としては二段階で、まず local の folder を git の管理下におきます。次に remote reposity を指定し、そこに登録するという流れです。具体的には git の初期化をして管理下に加えて、GitHUBのリモートサイトを登録し、そのリモートサイトに保存する、という流れです。
 
 ## STEP 1: git管理下の設定
 
-Mac の Termanal から対象の folder に移動し、folder をgit管理下にします。ここではまだ github.com は関係ありません。
+Mac の Termanal から対象の folder に移動し、folder を git管理下にします。ここではまだ github.com は関係なく、local site の作業になります。
 
 ```
 $ cd target_directory
 ```
 
-target_directory とは、登録したい file があるdirectory, folder のことです。
+target_directory とは、登録したい file がある directory, folder のことです。
 
-最初に git の管理下にすでに入っていないか念のため確認します。
+最初に git のすでに管理下に入っていないか念のため確認します。
 
 ```
 $ ls -a
@@ -27,6 +27,7 @@ $ ls -a
 ```
 $ rm -rf .git/
 ```
+
 で削除します。
 
 そして、初期化します。
@@ -117,7 +118,7 @@ $ git remote -v.
 ❯ git remote -v
 origin	git@github.com:etalli/168_LMT.git (fetch)
 origin	git@github.com:etalli/168_LMT.git (push)
-```
+```nn
 となりました。登録済みです。
 
 新しいリモートを足すには、
