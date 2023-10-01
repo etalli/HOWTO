@@ -125,9 +125,7 @@ Position Tools > Move Exactly (shift-M)を使う。
 ### 次のエラーが出たときの対処方法
 ![](images/2023-03-08_21_45_31.png)
 
-Auto routingをしようとして、このエラーが出たときは、footprintで回路図と結びついていないものがあることを意味している。
-
-通常、回路図でsymbolを作ってPCB editorに出てきているものは問題ないが、PCB editor上で追加したもので問題が生じる。例えば、Mounting holeである。
+Auto routingをしようとして、このエラーが出たときは、footprintで回路図と結びついていないものがあることを意味している。通常、回路図でsymbolを作ってPCB editorに出てきているものは問題ないが、PCB editor上で追加したもので問題が生じる。例えば、Mounting holeである。
 
 このエラーが意味するのは、reference IDがないというもので、designatorとよばれるが、その値がない状態であることを意味する。からはよいが参照なしはDSN Export toolには適さない。
 
@@ -143,4 +141,14 @@ Auto routingをしようとして、このエラーが出たときは、footprin
 * fp-lib-table
 
 * sym-lib-table
+
+### Open source の kiCAD file から再利用する場合
+
+Gerber fileだけではなくて、KiCADのProjectファイルを丸ごと共有して、それもMITやApache 2.0ライセンスとして再利用を許諾しているものもある。
+それらのPCBデザインの穴の位置などを再利用しようとする際にエラーが生じる場合がある。
+
+よくあるのは、元のProjectのschematics editorでmounting holeを定義しておらず、 PCBデザイン時に手動で足したものがある。これはAuto routerを動かすときにerrorになってしまう。
+また、auto routerを動かす前に配線だけを消すつもりが、これらのmounting holeなどの情報も一緒に消えてしまい、なんのために再利用しようとしているかがわからなくなってしまうことがある。
+
+そこで、再利用しようとするPCB editorでは、まず穴の位置や外形をLockしておいてから、配線を削除するという手順を踏めばよい。あるいは、根本的に解決するためには、mounting holeなどをちゃんとschematics edtior側で定義して、PCBに反映させるというものである。手間だが、何度も繰り返すことになる前提では、このように根本的に解決しておくほうが無駄がない。
 
